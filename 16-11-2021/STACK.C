@@ -1,0 +1,60 @@
+#include<stdio.h>
+#define max 5
+void main()
+{
+	int stck[max],top=-1,ch,i,item;
+	clrscr();
+	while(ch!=4)
+	{
+		printf("\n1.PUSH\n2.POP\n3.DISPLAY\n4.EXIT\nEnter your Choice : ");
+		scanf("%d",&ch);
+		switch(ch)
+		{
+			case 1:
+				if(top==max-1)
+				{
+					printf("\nStack is Full.");
+				}
+				else
+				{
+					printf("\nEnter the element to be inserted : ");
+					scanf("%d",&item);
+					top=top+1;
+					stck[top]=item;
+				}
+			break;
+			case 2:
+				if(top==-1)
+				{
+					printf("\nStack is empty.");
+				}
+				else
+				{
+					item=stck[top];
+					top=top-1;
+					printf("\nDeleted element is : %d",item);
+				}
+			break;
+			case 3:
+				if(top==-1)
+				{
+					printf("\nStack is Empty.");
+				}
+				else
+				{
+					for(i=top;i>=0;i--)
+					{
+						printf("%4d",stck[i]);
+					}
+				}
+			break;
+			case 4:
+				exit(0);
+			break;
+			default:
+				printf("\nInvalid Choice!");
+			break;
+		}
+	}
+	getch();
+}
